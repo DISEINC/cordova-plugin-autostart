@@ -5,20 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import com.tonikorin.cordova.plugin.autostart.AppStarter;
-import android.os.Handler;
  
 public class BootCompletedReceiver extends BroadcastReceiver {
     
     @Override
     public void onReceive(Context context, Intent intent) {
-        
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable(){
-            @Override
-            public void run(){
-                AppStarter appStarter = new AppStarter();
-                appStarter.run(context, intent, PackageManager.COMPONENT_ENABLED_STATE_ENABLED);
-		    }
-		}, 60 * 1000);
+        try {
+            Thread.sleep(60 * 1000);
+        } catch (InterruptedException e) {
+        }
+
+        AppStarter appStarter = new AppStarter();
+        appStarter.run(context, intent, PackageManager.COMPONENT_ENABLED_STATE_ENABLED);
     }
 }

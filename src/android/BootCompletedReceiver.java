@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import com.tonikorin.cordova.plugin.autostart.AppStarter;
+import android.os.Handler;
  
 public class BootCompletedReceiver extends BroadcastReceiver {
     

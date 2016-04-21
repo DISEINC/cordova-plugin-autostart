@@ -11,7 +11,13 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         
-        AppStarter appStarter = new AppStarter();
-        appStarter.run(context, intent, PackageManager.COMPONENT_ENABLED_STATE_ENABLED);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable(){
+            @Override
+            public void run(){
+                AppStarter appStarter = new AppStarter();
+                appStarter.run(context, intent, PackageManager.COMPONENT_ENABLED_STATE_ENABLED);
+		    }
+		}, 60 * 1000);
     }
 }

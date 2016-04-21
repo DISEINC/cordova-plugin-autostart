@@ -21,6 +21,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 				AppStarter appStarter = new AppStarter();
 				appStarter.run(context, intent, PackageManager.COMPONENT_ENABLED_STATE_ENABLED);
 			}
-		}, 30 * 1000);
+		}, 10 * 1000);
 	}
 }
